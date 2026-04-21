@@ -18,7 +18,9 @@ That should be it for configuration on Discord's side.
 
 Now get the ReminderBot code, on the last line, inside the single quotation marks, put token you copied earlier.
 It should look something like this:
+```
 bot.run('MTQ5NTk5NjE0ODUzMDQxMzYyOA.Gw-aFL.TbxasUvaZRluhM1ZKAvUICLqzdJ-MrIvYepeAo')
+```
 
 Save that. That is now your complete script.
 
@@ -27,6 +29,7 @@ Create a Service File in /etc/systemd/system/
 Name it "ReminderBot.service" (or whatever you want).
 
 The content of the service file should be:
+```
     [Unit]
     Description=Discord Reminder Bot
     After=network.target
@@ -41,28 +44,35 @@ The content of the service file should be:
 
     [Install]
     WantedBy=multi-user.target
+```
 
 You will need to replace both instances of "USER" above with your actual user account name.
 You'll need to install some of the python libraries that ReminderBot uses.
 Run:
+```
 sudo apt update
 sudo apt install python3-pip
+```
 
 Then you are ready to install the libraries themselves. Run:
+```
 python3 -m pip install "discord"
 python3 -m pip install "isodate"
+```
 
 Now create the script itself in your user's home directory.
 You can test the script to ensure that it works properly by just running it. If it runs, you're ready to deploy it as a service.
 To deploy it, run:
+```
 sudo systemctl daemon-reload
 sudo systemctl enable ReminderBot
 sudo systemctl start ReminderBot
+```
 
 ReminderBot should be working for you.
 
 Here is ReminderBot's help example:
-
+```
 8:41 PM]zelklen: $RemindMe -help
 [8:41 PM] 
 APP
@@ -76,3 +86,4 @@ Message - The message that you want the bot to display when the timer expires.
     Example $RemindMe "GUEST|PT10S|This example reminder will execute 10 seconds after ReminderBot sees it."
 
 www.team-uber.com
+```
