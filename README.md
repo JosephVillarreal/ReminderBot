@@ -71,7 +71,7 @@ sudo systemctl start ReminderBot
 
 ReminderBot should be working for you.
 
-Here is ReminderBot's help example:
+Here is ReminderBot's help example (idk how to turn word wrap on, scroll to the right or something):
 ```
 8:41 PM]zelklen: $RemindMe -help
 [8:41 PM] 
